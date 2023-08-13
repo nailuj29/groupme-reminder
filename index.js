@@ -16,10 +16,6 @@ app.post('/', jsonParser, async (req, res) => {
     const text = req.body.text;
     const words = text.split(' ');
 
-    if (req.body.name === process.env.BOT_NAME) {
-        return;
-    }
-
     if (words[0] !== '/remind') {
         return;
     }
