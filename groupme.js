@@ -26,7 +26,7 @@ export const sendMentionMessage = async (user_name, user_id, text) => {
             {
                 type: "mentions",
                 user_ids: [user_id],
-                loci: [0, user_name.length + 1],
+                loci: [[0, user_name.length + 1]],
             }
         ],
         text: `@${user_name} ${text}`,
