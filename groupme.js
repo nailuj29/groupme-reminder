@@ -41,6 +41,6 @@ export const sendMentionMessage = async (user_name, user_id, text) => {
     });
 
     if (res.status !== 202) {
-        console.error("Error sending message: " + await res.json());
+        console.error("Error sending message: " + await res.text());
     }
 }
