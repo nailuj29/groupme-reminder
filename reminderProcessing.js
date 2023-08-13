@@ -1,5 +1,5 @@
 import sqlite3 from "sqlite3";
-import { sendMentionMessage } from "./groupme";
+import { sendMentionMessage } from "./groupme.js";
 
 const db = new sqlite3.Database("./db.sqlite");
 
@@ -28,7 +28,7 @@ export const init = () => {
         time INTEGER,
         text TEXT,
         user_name TEXT,
-        user_id INTEGER}`, 
+        user_id INTEGER)`, 
         (err) => {
             if (err != null) {
                 console.error(err);
@@ -39,7 +39,7 @@ export const init = () => {
 };
 
 export const addReminder = (reminder) => {
-    db.run(`INSERT INTO reminders (time, text, user_name, user_id) VALUES (?, ?, ?)`, [reminder.time, reminder.text, reminder.user_name, reminder.user_id],
+    db.run(`INSERT INTO reminders (time, text, user_name, user_id) VALUES (?, ?, ?, ?)`, [reminder.time, reminder.text, reminder.user_name, reminder.user_id],
         (err) => {
             if (err != null) {
                 console.error(err);
