@@ -4,7 +4,7 @@ import { sendMentionMessage } from "./groupme";
 const db = new sqlite3.Database("./db.sqlite");
 
 const sendReminders = () => {
-    const time = Date.now();
+    const time = Date.now() / 1000;
     db.all(`SELECT * FROM reminders WHERE time < ?`, [time], (err, rows) => {
         if (err != null) {
             console.error(err);
